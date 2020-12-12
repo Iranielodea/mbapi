@@ -4,6 +4,8 @@ use App\Controllers\ClienteController;
 use App\Controllers\GrupoController;
 use App\Controllers\UsuarioController;
 use App\Controllers\TransportadoraController;
+use App\Controllers\PedidoController;
+use App\Controllers\PedidoItemController;
 
 use function src\slimConfiguration;
 
@@ -35,7 +37,14 @@ $app->get('/transportadora/{id}', TransportadoraController::class . ':editar');
 $app->post('/transportadora', TransportadoraController::class . ':salvar');
 $app->put('/transportadora', TransportadoraController::class . ':salvar');
 //=============================================================================
-// $app->get('/pedido{id}', PedidoController::class . ':editar');
-// $app->post('/pedido', PedidoController::class . ':salvar');
+$app->get('/pedido/{id}', PedidoController::class . ':editar');
+$app->post('/pedido', PedidoController::class . ':salvar');
+$app->put('/pedido', PedidoController::class . ':salvar');
 //=============================================================================
+$app->get('/pedido-item/{id}', PedidoItemController::class . ':editar');
+$app->get('/pedido-item/{listarpedido}/{numPedido}', PedidoItemController::class . ':listarItensDoPedido');
+$app->post('/pedido-item', PedidoItemController::class . ':salvar');
+$app->put('/pedido-item', PedidoItemController::class . ':salvar');
+//=============================================================================
+// require_once "routes\PedidoRoute.php";
 $app->run();

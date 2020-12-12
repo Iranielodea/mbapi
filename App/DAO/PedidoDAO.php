@@ -15,24 +15,24 @@ class PedidoDAO extends Crud
         $sql = $sql . " WHERE id is not null";
 
         if ($pedidoFiltro->dataInicial != null)
-            $sql += " AND data_emissao >= {$pedidoFiltro->dataInicial}";
+            $sql = $sql . " AND data_emissao >= {$pedidoFiltro->dataInicial}";
 
         if ($pedidoFiltro->dataFinal != null)
-            $sql += " AND data_emissao <= {$pedidoFiltro->dataFinal}";
+            $sql = $sql . " AND data_emissao <= {$pedidoFiltro->dataFinal}";
         
         if ($pedidoFiltro->nomeCliente != null)
-            $sql += " AND nome_cliente LIKE '%{$pedidoFiltro->nomeCliente}%'";
+            $sql = $sql . " AND nome_cliente LIKE '%{$pedidoFiltro->nomeCliente}%'";
 
         if ($pedidoFiltro->nomeFornecedor != null)
-            $sql += " AND nome_fornecedor LIKE '%{$pedidoFiltro->nomeFornecedor}%'";
+            $sql = $sql . " AND nome_fornecedor LIKE '%{$pedidoFiltro->nomeFornecedor}%'";
 
         if ($pedidoFiltro->numPedido != null)
-            $sql += " AND num_pedido = {$pedidoFiltro->numPedido}";
+            $sql = $sql . " AND num_pedido = {$pedidoFiltro->numPedido}";
 
         if ($pedidoFiltro->situacao != null)
-            $sql += " AND situacao = {$pedidoFiltro->situacao}";
+            $sql = $sql . " AND situacao = {$pedidoFiltro->situacao}";
 
-        $sql += " ORDER BY data_emissao, num_pedido";
+        $sql = $sql . " ORDER BY data_emissao, num_pedido";
 
         $stmt = DB::prepare($sql);
         $stmt->execute();

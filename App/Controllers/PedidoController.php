@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 use App\DAO\PedidoDAO;
 use App\Models\PedidoModel;
-use Exception;
 use Psr\http\Message\ServerRequestInterface as Request;
 use Psr\http\Message\ResponseInterface as Response;
 
@@ -40,37 +39,37 @@ class PedidoController
         {
             foreach($data as $item)
             {
-                $pedido = $pedidoDAO->ObterPorNumPedido($item->numPedido);
-                if ($pedido != null)
-                    $model = $pedido->setId($pedido->id);
+                // $pedido = $pedidoDAO->ObterPorNumPedido($item->numPedido);
+                // if ($pedido != null)
+                //     $model->id = $pedido->id;
 
-                $model->setNumPedido($item->numPedido);
-                $model->setNomeCliente($item->nomeCliente);
-                $model->setData($item->data);
-                $model->setTotalBruto($item->totalBruto);
-                $model->setPercDesconto($item->percDesconto);
-                $model->setValorDesconto($item->valorDesconto);
-                $model->setTotalLiquido($item->totalLiquido);
-                $model->setSituacao($item->situacao);
-                $model->setNomeFornecedor($item->nomeFornecedor);
-                $model->setObs($item->obs);
-                $model->setNomeContato($item->nomeContato);
-                $model->setPercComissao($item->percComissao);
-                $model->setEncerrado($item->encerrado);
-                $model->setTotalVenda($item->totalVenda);
-                $model->setTotalLucro($item->totalLucro);
-                $model->setTotalQtde($item->totalQtde);
-                $model->setNumCarga($item->numCarga);
-                $model->setValorLucro($item->valorLucro);
-                $model->setNomeVendedor($item->nomeVendedor);
-                $model->setValorComissao($item->valorComissao);
-                $model->setTotalComissao($item->totalComissao);
-                $model->setNomeUsina($item->nomeUsina);
+                $model->numPedido = $item->numPedido;
+                $model->nomeCliente = $item->nomeCliente;
+                $model->data = $item->data;
+                $model->totalBruto = $item->totalBruto;
+                $model->percDesconto = $item->percDesconto;
+                $model->valorDesconto = $item->valorDesconto;
+                $model->totalLiquido = $item->totalLiquido;
+                $model->situacao = $item->situacao;
+                $model->nomeFornecedor = $item->nomeFornecedor;
+                $model->obs = $item->obs;
+                $model->nomeContato = $item->nomeContato;
+                $model->percComissao = $item->percComissao;
+                $model->encerrado = $item->encerrado;
+                $model->totalVenda = $item->totalVenda;
+                $model->totalLucro = $item->totalLucro;
+                $model->totalQtde = $item->totalQtde;
+                $model->numCarga = $item->numCarga;
+                $model->valorLucro = $item->valorLucro;
+                $model->nomeVendedor = $item->nomeVendedor;
+                $model->valorComissao = $item->valorComissao;
+                $model->totalComissao = $item->totalComissao;
+                $model->nomeUsina = $item->nomeUsina;
 
                 $pedidoDAO->salvar($model);
             }
         }
-        catch(Exception $ex)
+        catch(\Exception $ex)
         {
             $retorno = array("mensagem" => $ex->getMessage());
         }

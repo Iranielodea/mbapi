@@ -2,31 +2,33 @@
 
 namespace App\Models;
 
+use Exception;
+
 class PedidoModel
 {
-    private $id;
-    private $numPedido;
-    private $nomeCliente;
-    private $data;
-    private $totalBruto;
-    private $percDesconto;
-    private $valorDesconto;
-    private $totalLiquido;
-    private $situacao;
-    private $nomeFornecedor;
-    private $obs;
-    private $nomeContato;
-    private $percComissao;
-    private $encerrado;
-    private $totalVenda;
-    private $totalLucro;
-    private $totalQtde;
-    private $numCarga;
-    private $valorLucro;
-    private $nomeVendedor;
-    private $valorComissao;
-    private $totalComissao;
-    private $nomeUsina;
+    public $id;
+    public $numPedido;
+    public $nomeCliente;
+    public $data;
+    public $totalBruto;
+    public $percDesconto;
+    public $valorDesconto;
+    public $totalLiquido;
+    public $situacao;
+    public $nomeFornecedor;
+    public $obs;
+    public $nomeContato;
+    public $percComissao;
+    public $encerrado;
+    public $totalVenda;
+    public $totalLucro;
+    public $totalQtde;
+    public $numCarga;
+    public $valorLucro;
+    public $nomeVendedor;
+    public $valorComissao;
+    public $totalComissao;
+    public $nomeUsina;
 
     public function getId()
     {
@@ -45,6 +47,7 @@ class PedidoModel
 
     public function setNumPedido($value)
     {
+        
         $this->numPedido = $value;
     }
 
@@ -56,6 +59,14 @@ class PedidoModel
     public function setData($value)
     {
         $this->data = $value;
+        // try
+        // {
+        //     $this->data = date("Y-m-d", $value);
+        // }
+        // catch(Exception $ex)
+        // {
+        //     $this->data = null;
+        // }
     }
 
     public function getTotalBruto()

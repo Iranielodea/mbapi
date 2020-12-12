@@ -2,20 +2,21 @@
 
 namespace App\Models;
 
-class PedidoItem
+class PedidoItemModel
 {
-    private $id;
-    private $numPedido;
-    private $codProduto;
-    private $sequencia;
-    private $qtde;
-    private $valor;
-    private $valorTotal;
-    private $unidade;
-    private $precoVenda;
-    private $valorLucro;
-    private $totalLucro;
-    private $totalVenda;
+    public $id;
+    public $numPedido;
+    public $codProduto;
+    public $nomeProduto;
+    public $seq;
+    public $qtde;
+    public $valor;
+    public $valorTotal;
+    public $siglaUn;
+    public $precoVenda;
+    public $valorLucro;
+    public $totalLucro;
+    public $totalVenda;
 
     public function getId()
     {
@@ -47,14 +48,24 @@ class PedidoItem
         $this->codProduto = $value;
     }
 
-    public function getSequencia()
+    public function getNomeProduto()
     {
-        return $this->sequencia;
+        return $this->nomeProduto;
     }
 
-    public function setSequencia($value)
+    public function setNomeProduto($value)
     {
-        $this->sequencia = $value;
+        $this->nomeProduto = $value;
+    }
+
+    public function getSeq()
+    {
+        return $this->seq;
+    }
+
+    public function setSeq($value)
+    {
+        $this->seq = $value;
     }
 
     public function getQtde()
@@ -87,14 +98,14 @@ class PedidoItem
         $this->valorTotal = $value;
     }
 
-    public function getUnidade()
+    public function getSiglaUn()
     {
-        return $this->unidade;
+        return $this->siglaUn;
     }
 
-    public function setUnidade($value)
+    public function setSiglaUn($value)
     {
-        $this->unidade = $value;
+        $this->siglaUn = $value;
     }
 
     public function getPrecoVenda()
